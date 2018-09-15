@@ -1,0 +1,40 @@
+{
+    "changeData":
+    {
+        "nav":
+        {
+            "backColor":"#2b3036",
+            "backImg":"loaninfomainback",
+            "titleColor":"#ffffff",
+            "titleFont":"18"
+        },
+        "tabbar":
+        {
+            "baseSet":
+            [
+             {
+             "vcName": "firstHomeViewController",
+             "title": "主页",
+             "imageName": "loaninfohome",
+             "selectImageName":"loaninfohomeselect"
+             },
+             {
+             "vcName": "secondHomeViewController",
+             "title": "新口子",
+             "imageName": "loaninfofire",
+             "selectImageName":"loaninfofireselect"
+             },
+             {
+             "vcName": "fourHomeViewController",
+             "title": "我的",
+             "imageName": "loaninfomy",
+             "selectImageName":"loaninfomyselect"
+             }
+             ],
+            "appearance":
+            {
+                "selectColor":"000000"
+            }
+        }
+    }
+}

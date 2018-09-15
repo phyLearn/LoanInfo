@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoanInfoSettingMainView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLo-0H-cuZ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Bd-ZU-Kpx">
+                            <rect key="frame" x="10" y="10" width="355" height="53.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="检查更新" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvM-04-zty">
+                                    <rect key="frame" x="65" y="17" width="173" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="Csb-gu-BkD"/>
+                                        <constraint firstAttribute="width" constant="173" id="Jfp-G2-eOi"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loaninfoupdate" translatesAutoresizingMaskIntoConstraints="NO" id="IZq-5t-Hpv">
+                                    <rect key="frame" x="20" y="15" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="OWh-QM-NyE"/>
+                                        <constraint firstAttribute="width" constant="25" id="bGK-TE-bpw"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="kvM-04-zty" firstAttribute="leading" secondItem="IZq-5t-Hpv" secondAttribute="trailing" constant="20" id="0wL-Ae-j7r"/>
+                                <constraint firstItem="IZq-5t-Hpv" firstAttribute="centerY" secondItem="7Bd-ZU-Kpx" secondAttribute="centerY" id="ASZ-bv-VU4"/>
+                                <constraint firstAttribute="width" secondItem="7Bd-ZU-Kpx" secondAttribute="height" multiplier="106:16" id="BbQ-4l-Fbm"/>
+                                <constraint firstItem="kvM-04-zty" firstAttribute="centerY" secondItem="IZq-5t-Hpv" secondAttribute="centerY" id="Cyp-51-u1g"/>
+                                <constraint firstItem="IZq-5t-Hpv" firstAttribute="leading" secondItem="7Bd-ZU-Kpx" secondAttribute="leading" constant="20" id="bRC-Zi-RRB"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-kH-E5C">
+                            <rect key="frame" x="10" y="83.5" width="355" height="45.5"/>
+                            <color key="backgroundColor" red="0.50196078431372548" green="0.51372549019607838" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="a5B-kH-E5C" secondAttribute="height" multiplier="335:43" id="d3J-SM-1qp"/>
+                            </constraints>
+                            <state key="normal" title="退出登录">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="quitLoginAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="KWr-bw-Q35"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="7Bd-ZU-Kpx" secondAttribute="trailing" constant="10" id="6c3-ao-xmt"/>
+                        <constraint firstItem="a5B-kH-E5C" firstAttribute="trailing" secondItem="7Bd-ZU-Kpx" secondAttribute="trailing" id="Abj-pz-zva"/>
+                        <constraint firstItem="7Bd-ZU-Kpx" firstAttribute="leading" secondItem="FLo-0H-cuZ" secondAttribute="leading" constant="10" id="DbA-S8-X5b"/>
+                        <constraint firstItem="7Bd-ZU-Kpx" firstAttribute="top" secondItem="FLo-0H-cuZ" secondAttribute="top" constant="10" id="YgH-ev-3CK"/>
+                        <constraint firstItem="a5B-kH-E5C" firstAttribute="top" secondItem="7Bd-ZU-Kpx" secondAttribute="bottom" constant="20" id="b9U-WG-IJ8"/>
+                        <constraint firstItem="a5B-kH-E5C" firstAttribute="leading" secondItem="7Bd-ZU-Kpx" secondAttribute="leading" id="ggq-LE-qvl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="FLo-0H-cuZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="69Q-8X-DVb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FLo-0H-cuZ" secondAttribute="trailing" id="Jev-ox-pfj"/>
+                <constraint firstItem="FLo-0H-cuZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bc2-N4-2U5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="FLo-0H-cuZ" secondAttribute="bottom" id="f2s-qa-ju8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="checkUpdateView" destination="7Bd-ZU-Kpx" id="i0m-yc-VSi"/>
+                <outlet property="quitBtn" destination="a5B-kH-E5C" id="9xi-3J-tOm"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="93.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="loaninfoupdate" width="43" height="43"/>
+    </resources>
+</document>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoanInfoMyHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPd-Yt-J8f">
+                    <rect key="frame" x="0.0" y="10" width="375" height="100"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loaninfomyicon" translatesAutoresizingMaskIntoConstraints="NO" id="GfD-vm-YZq">
+                            <rect key="frame" x="20" y="25" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="Ay3-MQ-16J"/>
+                                <constraint firstAttribute="height" constant="50" id="ttY-fw-kUX"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="138****5431" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1br-7j-btR">
+                            <rect key="frame" x="80" y="25" width="140" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="5YG-4V-gb4"/>
+                                <constraint firstAttribute="width" constant="140" id="cDT-MB-4JY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP 1级" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odc-oj-hW5">
+                            <rect key="frame" x="80" y="54" width="140" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="I4O-Fh-cWh"/>
+                                <constraint firstAttribute="width" constant="140" id="bWS-cl-xJh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loaninfonewsicon" translatesAutoresizingMaskIntoConstraints="NO" id="Qi7-5K-fJ5">
+                            <rect key="frame" x="315" y="32" width="40" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Qi7-5K-fJ5" secondAttribute="height" multiplier="100:91" id="Adh-dA-LuH"/>
+                                <constraint firstAttribute="width" constant="40" id="sVJ-Ff-bAd"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.78823529410000004" green="0.59607843140000005" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Odc-oj-hW5" firstAttribute="top" secondItem="1br-7j-btR" secondAttribute="bottom" constant="8" id="1uL-A0-eDW"/>
+                        <constraint firstAttribute="trailing" secondItem="Qi7-5K-fJ5" secondAttribute="trailing" constant="20" id="BWA-vF-Hk1"/>
+                        <constraint firstItem="1br-7j-btR" firstAttribute="leading" secondItem="GfD-vm-YZq" secondAttribute="trailing" constant="10" id="IXg-dq-grD"/>
+                        <constraint firstItem="1br-7j-btR" firstAttribute="top" secondItem="GfD-vm-YZq" secondAttribute="top" id="Qt4-D6-0Mk"/>
+                        <constraint firstItem="Odc-oj-hW5" firstAttribute="leading" secondItem="1br-7j-btR" secondAttribute="leading" id="iKs-FS-cwx"/>
+                        <constraint firstItem="Qi7-5K-fJ5" firstAttribute="centerY" secondItem="MPd-Yt-J8f" secondAttribute="centerY" id="jhW-YG-m25"/>
+                        <constraint firstItem="GfD-vm-YZq" firstAttribute="leading" secondItem="MPd-Yt-J8f" secondAttribute="leading" constant="20" id="kUO-LB-BKv"/>
+                        <constraint firstItem="GfD-vm-YZq" firstAttribute="centerY" secondItem="MPd-Yt-J8f" secondAttribute="centerY" id="suW-4c-3DZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MPd-Yt-J8f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1EZ-iW-A2q"/>
+                <constraint firstItem="MPd-Yt-J8f" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="BBC-Eg-8fX"/>
+                <constraint firstItem="MPd-Yt-J8f" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="BhN-1U-AdZ"/>
+                <constraint firstItem="MPd-Yt-J8f" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Wgb-ZA-OJ6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="backMainView" destination="MPd-Yt-J8f" id="LcZ-pM-DUQ"/>
+                <outlet property="levelLabel" destination="Odc-oj-hW5" id="ejf-m9-Wyq"/>
+                <outlet property="mobileLabel" destination="1br-7j-btR" id="JeW-gE-Dpi"/>
+                <outlet property="newsImageView" destination="Qi7-5K-fJ5" id="Oac-ET-2ha"/>
+                <outlet property="userImageView" destination="GfD-vm-YZq" id="MQq-5n-Cw5"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="94"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="loaninfomyicon" width="82" height="82"/>
+        <image name="loaninfonewsicon" width="100" height="91"/>
+    </resources>
+</document>

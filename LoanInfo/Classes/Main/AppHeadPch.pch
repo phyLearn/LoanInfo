@@ -1,0 +1,50 @@
+//
+//  AppHeadPch.pch
+//  AppFramework
+//
+//  Created by Penghuaiyu on 16/10/13.
+//  Copyright © 2016年 Penghuaiyu. All rights reserved.
+//
+
+#ifndef AppHeadPch_pch
+#define AppHeadPch_pch
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+
+#ifdef DEBUG
+#define HYLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define HYLog(...)
+#endif
+
+#ifndef SYSTEM_FONT
+#define SYSTEM_FONT(__fontsize__)\
+[UIFont systemFontOfSize:__fontsize__]
+#endif
+
+#ifndef kTabBarHeight
+#define kTabBarHeight 49.0
+#endif
+
+#ifndef IMAGE_NAMED
+#define IMAGE_NAMED(__imageName__)\
+[UIImage imageNamed:__imageName__]
+#endif
+
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#ifndef kNavigationBarHeight
+#define kNavigationBarHeight (iPhoneX?88:64)
+#endif
+
+
+#pragma mark - Frame相关
+// 屏幕宽/高
+#define AppScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define AppScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#import "AppHead.h"
+
+#endif /* AppHeadPch_pch */
+#endif
