@@ -26,9 +26,28 @@
     LoanInfoLoginView *loginView = [[NSBundle mainBundle] loadNibNamed:@"LoanInfoLoginView" owner:self options:0][0];
     loginView.frame = vc.view.frame;
     [vc.view addSubview:loginView];
+    
+    //点击登录
     loginView.loginBtnClick = ^(NSDictionary *loginInfo){
         [self loginBtnActionWithInfo:loginInfo];
+        [[LoanInfoLoginDataManager shared] loginWithPhone:loginInfo[@"mobile"] code:loginInfo[@"smsCode"] complete:^(BOOL isSuccess, NSString *msg) {
+            if(isSuccess){
+                [self loginBtnActionWithInfo:loginInfo];
+            }else{
+                [LoanInfoToast showToastWithMessage:msg duration:2.0];
+            }
+        }];
     };
+    
+    //发送短信
+    loginView.smsBtnClick = ^(NSString *phone) {
+        if(phone && ![phone isEqualToString:@""]){
+            [[LoanInfoLoginDataManager shared] sendSmsWithPhone:phone];
+        }else{
+            [LoanInfoToast showToastWithMessage:@"请输入11位手机号" duration:2.0];
+        }
+    };
+    
     loginView.quiteBtnClick = ^{
         [self quiteBtnAction];
     };
@@ -55,11 +74,7 @@
 - (void)quitLoginComplete:(void(^)(void))complete{
     [AppDatabase removeUserLoginInfoComplete:^(BOOL isSuccess) {
         if(complete){
-            if(isSuccess){
-                complete();//退出成功，否则不会返回
-            }else{
-                HYLog(@"登录信息表删除失败");
-            }
+            complete();//退出成功
         }
     }];
 }

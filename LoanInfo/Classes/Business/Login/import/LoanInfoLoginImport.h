@@ -11,7 +11,7 @@
 
 #import "LoanInfoLoginLogicManager.h"
 #import "LoanInfoLoginView.h"
-#import <GT3Captcha/GT3Captcha.h>
 #import "LoanInfoPopView.h"
+#import "LoanInfoLoginDataManager.h"
 
 #endif /* LoanInfoLoginImport_h */

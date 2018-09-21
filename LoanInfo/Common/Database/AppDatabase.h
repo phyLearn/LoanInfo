@@ -12,6 +12,8 @@
 
 /**存储用户登录信息 mobile:用户表名 infoDict:需要存储的信息*/
 + (void)saveUserLoginInfo:(NSDictionary *)infoDict;
+//读取用户信息
++ (void)getLoginInfo:(void (^)(NSDictionary *dict))complete;
 + (void)islogin:(void(^)(BOOL isLogin))complete;
 + (void)removeUserLoginInfoComplete:(void(^)(BOOL isSuccess))complete;
 @end

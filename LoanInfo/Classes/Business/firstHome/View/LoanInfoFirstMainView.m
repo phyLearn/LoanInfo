@@ -116,8 +116,10 @@ static NSString *const mainCell = @"AppMainCell";
 - (LoanInfoFirstZeroView *)zeroView{
     if(!_zeroView){
         _zeroView = [[NSBundle mainBundle] loadNibNamed:@"LoanInfoFirstZeroView" owner:self options:0][0];
+        __weak typeof(self)weakSelf = self;
         _zeroView.tapOneActionBlock = ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"tableViewDidClickObser" object:nil];
+            NSDictionary *dict = weakSelf.cellData[0];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"tableViewDidClickObser" object:@{@"listId":dict[@"id"]}];
         };
     }
     return _zeroView;
@@ -179,7 +181,9 @@ static NSString *const mainCell = @"AppMainCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.cellData.count-1;
+    if(self.cellData.count > 1)
+        return self.cellData.count - 1;
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -193,7 +197,8 @@ static NSString *const mainCell = @"AppMainCell";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell refreshUI:self.cellData[indexPath.row+1]];
     cell.cellActionBlock = ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"tableViewDidClickObser" object:nil];
+        NSDictionary *dict = self.cellData[indexPath.row + 1];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"tableViewDidClickObser" object:@{@"listId":dict[@"id"]}];
     };
     return cell;
 }

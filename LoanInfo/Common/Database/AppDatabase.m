@@ -24,8 +24,24 @@
         [[AppFMDB intance] createTableWithTableName:tableName keys:infoDict.allKeys complete:^(BOOL isSuccess) {
             if(isSuccess){
                 HYLog(@"用户信息表创建成功");
+                [[AppFMDB intance] insertIntoTableName:tableName Dict:infoDict complete:^(BOOL isSuccess) {
+                    if(isSuccess){
+                        HYLog(@"插入成功");
+                    }
+                }];
             }
         }];
+    }];
+}
+
++ (void)getLoginInfo:(void (^)(NSDictionary *dict))complete{
+    NSString *tableName = [NSString stringWithFormat:@"loginInfo"];
+    [[AppFMDB intance] queryWithTableName:tableName complete:^(NSArray *array) {
+        NSDictionary *dict = [NSDictionary dictionary];
+        if(array.count){
+            dict = array[0];
+        }
+        complete(dict);
     }];
 }
 

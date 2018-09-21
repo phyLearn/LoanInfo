@@ -7,9 +7,15 @@
 //
 
 #import "LoanInfoMainLogicManager.h"
+#import "LoanInfoSecondImport.h"
 
 @interface LoanInfoSecondLogicManager : LoanInfoMainLogicManager
 
+- (void)registerObserChildDele:(id)delegate withTag:(NSInteger)tag;
+
+- (void)startLogicManagerWithViewController:(UIViewController *)vc paramDict:(NSDictionary *)paramDict;
 - (void)startLogicManagerWithSecondViewController:(UIViewController *)vc;
 
+//请求数据
+- (void)startRequestWithType:(NSString *)type page:(NSString *)page mainView:(LoanInfoSecondMainView *)mainView;
 @end

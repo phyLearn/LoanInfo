@@ -49,6 +49,8 @@ static NSString *const mainCell = @"AppMainCell";
         _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mainTableView.showsVerticalScrollIndicator = NO;
         _mainTableView.tableHeaderView = self.headerView;
+        _mainTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(mjheaderRefresh)];
+        _mainTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(mjfooterRefresh)];
     }
     return _mainTableView;
 }
@@ -69,9 +71,21 @@ static NSString *const mainCell = @"AppMainCell";
     return _cellData;
 }
 
+//下拉刷新
+- (void)mjheaderRefresh{
+    [self.mainTableView.mj_header endRefreshing];
+    [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@%ld",@"headerRefreshObser",self.currentTag] object:nil];
+}
+
+//上拉刷新
+- (void)mjfooterRefresh{
+    [self.mainTableView.mj_footer endRefreshing];
+    [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@%ld",@"footerRefreshObser",self.currentTag] object:nil];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.cellData.count - 1;
+    return self.cellData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -83,16 +97,27 @@ static NSString *const mainCell = @"AppMainCell";
 {
     AppMainCell *cell = [tableView dequeueReusableCellWithIdentifier:mainCell];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell refreshUI:self.cellData[indexPath.row + 1]];
+    [cell refreshUI:self.cellData[indexPath.row]];
     cell.cellActionBlock = ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"secondTableViewDidClickObser" object:nil];
+        NSDictionary *dict = self.cellData[indexPath.row];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"secondTableViewDidClickObser" object:@{@"listId":dict[@"id"]}];
     };
     return cell;
 }
 
 #pragma mark --- 刷新数据 ---
-- (void)refresCellDataWithDict:(NSDictionary *)dict{
-    self.cellData = dict[@"rowData"];
+- (void)refresCellDataWithDict:(NSDictionary *)dict page:(NSString *)inpage{
+    NSInteger page = [inpage integerValue];
+    if(page > 1){//如果不是第一页就要将数据递增
+        NSMutableArray *newArr = [NSMutableArray arrayWithArray:self.cellData];
+        NSArray *rowData = dict[@"rowData"];
+        for(NSDictionary *newDict in rowData){
+            [newArr addObject:newDict];
+        }
+        self.cellData = newArr;
+    }else{
+        self.cellData = dict[@"rowData"];
+    }
     [self.mainTableView reloadData];
 }
 @end

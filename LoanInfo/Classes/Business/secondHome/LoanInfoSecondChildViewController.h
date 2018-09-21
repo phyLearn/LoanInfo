@@ -10,4 +10,7 @@
 
 @interface LoanInfoSecondChildViewController : AppBaseViewController
 
+@property (nonatomic, assign) NSInteger tag;
+@property (nonatomic, strong) NSDictionary *paramDict;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface LoanInfoFourLogicManger : LoanInfoMainLogicManager
 
+- (void)refreshHeader;
+
 @end

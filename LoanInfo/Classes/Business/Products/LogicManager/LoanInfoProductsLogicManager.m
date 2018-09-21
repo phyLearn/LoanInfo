@@ -27,13 +27,13 @@
 }
 
 //在控制器初始化整个页面
-- (void)startLogicManagerWithViewController:(UIViewController *)vc complete:(void(^)(completeEnum sonCompleteEnum,NSDictionary *responseDict))complete{
+- (void)startLogicManagerWithViewController:(UIViewController *)vc paramDict:(NSDictionary *)paramDict complete:(void(^)(completeEnum sonCompleteEnum,NSDictionary *responseDict))complete{
     self.belongVC = vc;
     vc.view.backgroundColor = [LoanInfoMainConfig getBackgroundColor];
     vc.title = @"产品详情";
     self.productsView = [[LoanInfoProductsMainView alloc] initWithFrame:CGRectMake(LEFTPACEHEIGHT, 0, AppScreenWidth - 2 * LEFTPACEHEIGHT, AppScreenHeight)];
     //请求数据
-    [self getProductsResponseData];
+    [self getProductsResponseDataWithDict:paramDict];
     @weakify(self);
     self.productsView.nextBtnActionBlock = ^{
         HYLog(@"立即借款点击");
@@ -43,8 +43,9 @@
     [vc.view addSubview:self.productsView];
 }
 
-- (void)getProductsResponseData{
-    [[LoanInfoProductsDataManager shared] getProdictsResponseData:^(NSDictionary *dict) {
+- (void)getProductsResponseDataWithDict:(NSDictionary *)paramDict{
+    
+    [[LoanInfoProductsDataManager shared] getProdictsResponseData:paramDict[@"listId"] complete:^(NSDictionary *dict) {
         self.webResponseData = dict;
         self.productsView.productsData = dict;
     }];

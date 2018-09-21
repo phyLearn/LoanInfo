@@ -52,7 +52,7 @@ static NetworkStatus _status;
     //显示网络状态
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     AFHTTPSessionManager *manager = [self createAFHTTPSessionManager];
-    return [manager GET:URL parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+    return [manager GET:[self getMainUrlWithApi:URL] parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //隐藏状态栏上面的网络状态
@@ -64,9 +64,7 @@ static NetworkStatus _status;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        
         failure ? failure(error) : nil;
-        HYLog(@"error = %@",error);
     }];
 }
 
@@ -76,7 +74,7 @@ static NetworkStatus _status;
     //读取缓存
     responseCache([HYNetworkCache getResponseCacheForKey:URL]);
     AFHTTPSessionManager *manager = [self createAFHTTPSessionManager];
-    return [manager GET:URL parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+    return [manager GET:[self getMainUrlWithApi:URL] parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -102,7 +100,7 @@ static NetworkStatus _status;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     AFHTTPSessionManager *manager = [self createAFHTTPSessionManager];
-    return [manager POST:URL parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+    return [manager POST:[self getMainUrlWithApi:URL] parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -127,7 +125,7 @@ static NetworkStatus _status;
     responseCache([HYNetworkCache getResponseCacheForKey:URL]);
     
     AFHTTPSessionManager *manager = [self createAFHTTPSessionManager];
-    return [manager POST:URL parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+    return [manager POST:[self getMainUrlWithApi:URL] parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -151,7 +149,7 @@ static NetworkStatus _status;
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     AFHTTPSessionManager *manager = [self createAFHTTPSessionManager];
-    return [manager POST:URL parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    return [manager POST:[self getMainUrlWithApi:URL] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         //压缩-添加-上传图片
         [images enumerateObjectsUsingBlock:^(UIImage * _Nonnull image, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -181,7 +179,7 @@ static NetworkStatus _status;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     AFHTTPSessionManager *manager = [self createAFHTTPSessionManager];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self getMainUrlWithApi:URL]]];
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         //下载进度
         progress ? progress(downloadProgress) : nil;
@@ -234,6 +232,11 @@ static NetworkStatus _status;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil];
     
     return manager;
+}
+
++ (NSString *)getMainUrlWithApi:(NSString *)apiUrl{
+    NSString *mainUrl = [NSString stringWithFormat:@"%@%@",URLHOST,apiUrl];
+    return mainUrl;
 }
 
 @end

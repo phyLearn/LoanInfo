@@ -36,12 +36,7 @@ static NSString *const myMainCell = @"MyMainCell";
 }
 
 - (void)refreshHeaderView:(NSDictionary *)dict{
-    UIImageView *iconImageView = [self.headView viewWithTag:9];
-    UILabel *mobileLabel = [self.headView viewWithTag:10];
-    
-    [iconImageView setImage:[UIImage imageNamed:dict[@"iconImage"]]];
-    mobileLabel.text = dict[@"mobileText"];
-    mobileLabel.textColor = [LoanInfoMainConfig getBlueColor];
+    [self.headView refreshUI:dict];
 }
 
 - (LoanInfoMyHeaderView *)headView{

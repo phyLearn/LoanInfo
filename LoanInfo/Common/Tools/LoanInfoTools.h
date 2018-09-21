@@ -16,4 +16,6 @@
 + (void)interactivePopGestureRecognizerEnable:(BOOL)isEnable controllerView:(UIViewController *)vc;
 //根据宽高比计算高度
 + (CGFloat)scaleWithWidth:(CGFloat)width andWidthScale:(CGFloat)widthScale heihgtScale:(CGFloat)heihgtScale;
+//手机号脱敏
++ (NSString *)changeTelephone:(NSString *)phone;
 @end

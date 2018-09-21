@@ -52,7 +52,7 @@
 - (void)registerObserWithDele:(id)delegate{
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-    [[NSNotificationCenter defaultCenter] addObserver:delegate selector:@selector(tableViewDidClick) name:@"tableViewDidClickObser" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:delegate selector:@selector(tableViewDidClick:) name:@"tableViewDidClickObser" object:nil];
 #pragma clang diagnostic pop
 }
 

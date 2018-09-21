@@ -101,6 +101,7 @@
             <connections>
                 <outlet property="aDescLabel" destination="QUz-Hw-Y0g" id="2xH-Ao-ctD"/>
                 <outlet property="iconImageView" destination="gXE-le-Lgb" id="xCP-bf-osD"/>
+                <outlet property="loansCountLabel" destination="Kfa-8Q-B5B" id="HlW-JD-9w8"/>
                 <outlet property="maxLabel" destination="q1W-34-tTJ" id="Izz-jo-dSG"/>
                 <outlet property="titleLabel" destination="aKb-SU-ubb" id="Lee-ym-Toh"/>
             </connections>

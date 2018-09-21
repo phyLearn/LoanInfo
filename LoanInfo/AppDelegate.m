@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainTabBarViewController.h"
 #import "LoanInfoPush.h"
+#import "LoanInfoLocation.h"
 
 @interface AppDelegate ()
 <
@@ -29,6 +30,9 @@
     [LoanInfoAnalytics startAnalytics];
     //推送
     [LoanInfoPush startPushWithDele:self withOptions:launchOptions];
+    //定位
+    [[LoanInfoLocation shared] startLocal:^(NSDictionary *info) {
+    }];
     return YES;
 }
 

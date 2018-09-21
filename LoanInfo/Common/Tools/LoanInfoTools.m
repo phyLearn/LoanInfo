@@ -42,4 +42,10 @@
     height = (heihgtScale * width) / widthScale;
     return height;
 }
+
++ (NSString *)changeTelephone:(NSString *)phone{
+    NSString *resultPhone = [NSString string];
+    resultPhone = [phone stringByReplacingOccurrencesOfString:[phone substringWithRange:NSMakeRange(3,4)]withString:@"****"];
+    return resultPhone;
+}
 @end

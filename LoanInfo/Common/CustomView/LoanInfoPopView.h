@@ -12,6 +12,4 @@
 
 +(instancetype)shared;
 
-//显示行为校验弹框
-- (void)showActionCheckPopView;
 @end

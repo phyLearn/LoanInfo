@@ -28,6 +28,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [LoanInfoTools interactivePopGestureRecognizerEnable:NO controllerView:self];
+    [[LoanInfoFourLogicManger shared] refreshHeader];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{

@@ -19,24 +19,77 @@
     return dataManager;
 }
 
-- (void)getProdictsResponseData:(void(^)(NSDictionary *dict))complete{
+- (void)getProdictsResponseData:(NSString *)listId complete:(void(^)(NSDictionary *dict))complete{
+    [[LoanInfoToast shared] showHUD];
     NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
-    [resultDict setObject:@"https://www.baidu.com" forKey:@"mainUrl"];
-    //添加产品信息
-    NSArray *productsData = @[@{@"cellTitle":@"产品特色",@"cellContent":@"新口子，申请简单，通过率高"},
-                              @{@"cellTitle":@"所需资料",@"cellContent":@"身份证 手机号 支付宝 微信 工作地点"},
-                              @{@"cellTitle":@"申请条件",@"cellContent":@"学生不可申请，限20-40岁用户申请"}
-                              ];
-    [resultDict setObject:productsData forKey:@"productsArr"];
-    //添加头部信息
-    [resultDict setObject:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536672406611&di=fea40a4993f2c501f01e239ee5a45cdd&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2034814380%2C1845153858%26fm%3D214%26gp%3D0.jpg" forKey:@"productsImage"];
-    [resultDict setObject:@"随心回收" forKey:@"productsTitle"];
-    [resultDict setObject:@"1000已放款" forKey:@"productsPeople"];
-    [resultDict setObject:@"1000-3000元" forKey:@"productsMoney"];
-    [resultDict setObject:@"1-7天" forKey:@"productsTime"];
-    [resultDict setObject:@"0.11%" forKey:@"productsGate"];
-    if(complete)
-        complete([resultDict copy]);
+    [HYNetworkHelper GET:[NSString stringWithFormat:@"%@%@",@"/api/customer/get4app/",listId] parameters:@{} note:YES success:^(id responseObject){
+        [[LoanInfoToast shared] hideHUD];
+        if([[responseObject[@"data"] class] isEqual:[NSNull class]]) return;
+        
+        NSDictionary *dataDict = responseObject[@"data"];
+        [resultDict setObject:dataDict[@"seo_url"] forKey:@"mainUrl"];
+        //添加产品信息
+        NSArray *productsData = @[@{@"cellTitle":@"产品特色",@"cellContent":@"新口子，申请简单，通过率高"},
+                                  @{@"cellTitle":@"所需资料",@"cellContent":@"身份证 手机号 支付宝 微信 工作地点"},
+                                  @{@"cellTitle":@"申请条件",@"cellContent":@"学生不可申请，限20-40岁用户申请"}
+                                  ];
+        [resultDict setObject:productsData forKey:@"productsArr"];
+        //添加头部信息
+        [resultDict setObject:dataDict[@"logo"] forKey:@"productsImage"];
+        [resultDict setObject:dataDict[@"name"] forKey:@"productsTitle"];
+        [resultDict setObject:[NSString stringWithFormat:@"%@已放款",dataDict[@"loans"]] forKey:@"productsPeople"];
+        [resultDict setObject:[NSString stringWithFormat:@"%@-%@元",dataDict[@"min"],dataDict[@"max"]] forKey:@"productsMoney"];
+        switch ([dataDict[@"scope"] integerValue]) {
+            case 0:
+            {
+                [resultDict setObject:@"未知" forKey:@"productsTime"];
+            }
+                break;
+            case 1:
+            {
+                [resultDict setObject:@"不限" forKey:@"productsTime"];
+            }
+                break;
+            case 2:
+            {
+                [resultDict setObject:@"长期" forKey:@"productsTime"];
+            }
+                break;
+            case 3:
+            {
+                [resultDict setObject:@"一年" forKey:@"productsTime"];
+            }
+                break;
+            case 4:
+            {
+                [resultDict setObject:@"半年" forKey:@"productsTime"];
+            }
+                break;
+            case 5:
+            {
+                [resultDict setObject:@"30天" forKey:@"productsTime"];
+            }
+                break;
+            case 6:
+            {
+                [resultDict setObject:@"14天" forKey:@"productsTime"];
+            }
+                break;
+            case 7:
+            {
+                [resultDict setObject:@"1-7天" forKey:@"productsTime"];
+            }
+                break;
+            default:
+                break;
+        }
+        [resultDict setObject:[NSString stringWithFormat:@"%@%@",dataDict[@"rate"],@"%"] forKey:@"productsGate"];
+        
+        if(complete)
+            complete(resultDict);
+    } failure:^(NSError *error) {
+        [[LoanInfoToast shared] hideHUD];
+    }];
 }
 
 @end

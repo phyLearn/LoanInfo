@@ -20,6 +20,10 @@
 #import "YYKit.h"
 #import "Masonry.h"
 #import "UIImageView+WebCache.h"
+#import "LoanInfoToast.h"
+#import <JXTAlertManager/JXTAlertManagerHeader.h>
+#import "LoanInfoDeviceNews.h"
+
 //配置
 #import "LoanInfoMainConfig.h"
 //跳转

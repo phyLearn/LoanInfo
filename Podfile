@@ -15,6 +15,12 @@ target 'LoanInfo' do
   pod 'MJRefresh'
   # 带动画的弹框
   pod 'ZJAnimationPopView'
+  # 弹出框
+  pod 'JXTAlertManager'
+  # toast提示
+ pod 'FFToast'
+ # 加载指示器
+ pod 'MBProgressHUD'
   # 滑动控件
   pod 'SGPagingView'
   # Pods for LoanInfo

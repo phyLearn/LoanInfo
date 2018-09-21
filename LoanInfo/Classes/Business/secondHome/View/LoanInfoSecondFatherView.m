@@ -71,6 +71,7 @@
 - (void)pageContentScrollView:(SGPageContentScrollView *)pageContentScrollView index:(NSInteger)index {
     /// 说明：在此获取标题or当前子控制器下标值
     HYLog(@"index - - %ld", index);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"scrollViewMoveObser" object:@{@"index":[NSString stringWithFormat:@"%ld",index]}];
 }
 
 @end

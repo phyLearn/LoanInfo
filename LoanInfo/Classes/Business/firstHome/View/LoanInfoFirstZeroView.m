@@ -35,9 +35,9 @@
 }
 
 - (void)refreshUI:(NSDictionary *)dict{
-    self.headerDescLabel.text = dict[@"headerDesc"];
-    self.bottomDescLabel.text = dict[@"bottomDesc"];
-    self.moneyLabel.text = dict[@"money"];
+    self.headerDescLabel.text = @"今日推荐";
+    self.bottomDescLabel.text = dict[@"feat"];
+    self.moneyLabel.text = [NSString stringWithFormat:@"%@-%@",dict[@"min"],dict[@"max"]];
 }
 
 @end

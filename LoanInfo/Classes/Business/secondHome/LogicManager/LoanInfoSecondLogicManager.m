@@ -7,11 +7,8 @@
 //
 
 #import "LoanInfoSecondLogicManager.h"
-#import "LoanInfoSecondImport.h"
 
 @interface LoanInfoSecondLogicManager()
-
-@property (nonatomic, strong) LoanInfoSecondMainView *mainView;
 
 @end
 @implementation LoanInfoSecondLogicManager
@@ -26,12 +23,12 @@
 }
 
 //在控制器初始化整个页面
-- (void)startLogicManagerWithViewController:(UIViewController *)vc{
+- (void)startLogicManagerWithViewController:(UIViewController *)vc paramDict:(NSDictionary *)paramDict{
     self.belongVC = vc;
     vc.view.backgroundColor = [LoanInfoMainConfig getBackgroundColor];
-    self.mainView = [[LoanInfoSecondMainView alloc] initWithFrame:CGRectMake(LEFTPACEHEIGHT, 0, AppScreenWidth - 2 * LEFTPACEHEIGHT, AppScreenHeight - kTabBarHeight - kNavigationBarHeight - 44 - SPACEHEIGHT)]; //44是上面titleView的高度
-    [vc.view addSubview:self.mainView];
-    [self startRequest];
+    LoanInfoSecondMainView *mainView = [[LoanInfoSecondMainView alloc] initWithFrame:CGRectMake(LEFTPACEHEIGHT, 0, AppScreenWidth - 2 * LEFTPACEHEIGHT, AppScreenHeight - kTabBarHeight - kNavigationBarHeight - 44 - SPACEHEIGHT)]; //44是上面titleView的高度
+    mainView.tag = CHILDMAINVIEWTAG;
+    [vc.view addSubview:mainView];
 }
 
 - (void)startLogicManagerWithSecondViewController:(UIViewController *)vc{
@@ -40,10 +37,9 @@
     [vc.view addSubview:fatherView];
 }
 
-- (void)startRequest{
-    //得到banner数据    
-    [[LoanInfoSecondDataManager shared] getCellDataComplete:^(NSDictionary *dict) {
-        [self.mainView refresCellDataWithDict:dict];
+- (void)startRequestWithType:(NSString *)type page:(NSString *)page mainView:(LoanInfoSecondMainView *)mainView{
+    [[LoanInfoSecondDataManager shared] getCellDataWithType:type num:@"10" page:page Complete:^(NSDictionary *dict, NSString *inpage) {
+        [mainView refresCellDataWithDict:dict page:page];
     }];
 }
 
@@ -51,7 +47,16 @@
 - (void)registerObserWithDele:(id)delegate{
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-    [[NSNotificationCenter defaultCenter] addObserver:delegate selector:@selector(tableViewDidClick) name:@"secondTableViewDidClickObser" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:delegate selector:@selector(tableViewDidClick:) name:@"secondTableViewDidClickObser" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:delegate selector:@selector(scrollViewMove:) name:@"scrollViewMoveObser" object:nil];
+#pragma clang diagnostic pop
+}
+
+- (void)registerObserChildDele:(id)delegate withTag:(NSInteger)tag{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    [[NSNotificationCenter defaultCenter] addObserver:delegate selector:@selector(headerRefresh) name:[NSString stringWithFormat:@"%@%ld",@"headerRefreshObser",tag] object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:delegate selector:@selector(footerRefresh) name:[NSString stringWithFormat:@"%@%ld",@"footerRefreshObser",tag] object:nil];
 #pragma clang diagnostic pop
 }
 

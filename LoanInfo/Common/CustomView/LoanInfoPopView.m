@@ -8,16 +8,10 @@
 
 #import "LoanInfoPopView.h"
 #import "ZJAnimationPopView.h"
-#import <GT3Captcha/GT3Captcha.h>
 
 @interface LoanInfoPopView()
-<
-    GT3CaptchaManagerDelegate,
-    GT3CaptchaButtonDelegate
->
 
 @property (nonatomic, strong) ZJAnimationPopView *actionCheckPopView;//行为校验弹框
-@property (nonatomic, strong) GT3CaptchaButton *captchaButton;//校验btn
 
 @end
 

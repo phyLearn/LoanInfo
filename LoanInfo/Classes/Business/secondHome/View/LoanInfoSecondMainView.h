@@ -10,6 +10,10 @@
 
 @interface LoanInfoSecondMainView : UIView
 
+//当前view的tag
+@property (nonatomic, assign) NSInteger currentTag;
+
 //刷新table
-- (void)refresCellDataWithDict:(NSDictionary *)dict;
+- (void)refresCellDataWithDict:(NSDictionary *)dict page:(NSString *)inpage;
+
 @end

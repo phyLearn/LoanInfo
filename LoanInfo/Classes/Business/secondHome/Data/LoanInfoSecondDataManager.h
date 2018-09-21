@@ -14,5 +14,5 @@
 
 - (void)getScrollTextsDataComplete:(void(^)(NSDictionary *dict))complete;
 
-- (void)getCellDataComplete:(void (^)(NSDictionary *dict))complete;
+- (void)getCellDataWithType:(NSString *)type num:(NSString *)num page:(NSString *)page Complete:(void (^)(NSDictionary *dict,NSString *inpage))complete;
 @end

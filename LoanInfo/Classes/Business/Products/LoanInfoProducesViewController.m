@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[LoanInfoProductsLogicManager shared] startLogicManagerWithViewController:self complete:^(completeEnum sonCompleteEnum,NSDictionary *responseDict) {
+    [[LoanInfoProductsLogicManager shared] startLogicManagerWithViewController:self paramDict:self.paramDict complete:^(completeEnum sonCompleteEnum,NSDictionary *responseDict) {
         switch (sonCompleteEnum) {
             case nextBtnEnum:
                 {

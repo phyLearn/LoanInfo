@@ -43,7 +43,6 @@
 // 屏幕宽/高
 #define AppScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define AppScreenHeight [UIScreen mainScreen].bounds.size.height
-
 #import "AppHead.h"
 
 #endif /* AppHeadPch_pch */

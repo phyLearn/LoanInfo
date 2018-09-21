@@ -10,6 +10,6 @@
 
 @interface LoanInfoProductsDataManager : LoanInfoDataManager
 
-- (void)getProdictsResponseData:(void(^)(NSDictionary *dict))complete;
+- (void)getProdictsResponseData:(NSString *)listId complete:(void(^)(NSDictionary *dict))complete;
 
 @end

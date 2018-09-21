@@ -47,10 +47,14 @@
     [[LoanInfoFoutDataManager shared] getFourCellDataComplete:^(NSDictionary *dict) {
         [self.mainView refreshCellData:dict];
     }];
-    
-    [[LoanInfoFoutDataManager shared] getFourHeaderDataComplete:^(NSDictionary *dict) {
-        [self.mainView refreshHeaderView:dict];
-    }];
+}
+
+- (void)refreshHeader{
+    if(self.mainView){
+        [[LoanInfoFoutDataManager shared] getFourHeaderDataComplete:^(NSDictionary *dict) {
+            [self.mainView refreshHeaderView:dict];
+        }];
+    }
 }
 
 @end

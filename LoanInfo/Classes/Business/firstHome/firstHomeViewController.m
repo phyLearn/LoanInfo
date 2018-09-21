@@ -43,9 +43,10 @@ static NSString *const mainCell = @"AppMainCell";
     [LoanInfoTools interactivePopGestureRecognizerEnable:YES controllerView:self];
 }
 
-- (void)tableViewDidClick{
+- (void)tableViewDidClick:(NSNotification *)noti{
     HYLog(@"tableViewDidClick");
-    [AppRoute routeToProductsVC:self];
+    NSDictionary *userinfo = noti.object;
+    [AppRoute routeToProductsVC:self paramDict:userinfo];
 }
 
 - (void)dealloc{

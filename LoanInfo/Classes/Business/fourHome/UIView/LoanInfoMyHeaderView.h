@@ -10,4 +10,6 @@
 
 @interface LoanInfoMyHeaderView : UIView
 
+- (void)refreshUI:(NSDictionary *)dict;
+
 @end

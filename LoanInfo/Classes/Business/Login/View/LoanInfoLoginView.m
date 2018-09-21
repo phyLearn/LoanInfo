@@ -32,7 +32,7 @@
     [super awakeFromNib];
     self.descLabel.textColor = [LoanInfoMainConfig getYellowColor];
     self.mobileDescLabel.textColor = [LoanInfoMainConfig getYellowColor];
-    self.xieyiDescLabel.textColor = [LoanInfoMainConfig getYellowColor];
+    self.xieyiDescLabel.textColor = [LoanInfoMainConfig getLineColor];
     [self.smsBtn setTitleColor:[LoanInfoMainConfig getYellowColor] forState:UIControlStateNormal];
     self.loginBtn.backgroundColor = [LoanInfoMainConfig getYellowColor];
 }
@@ -41,12 +41,15 @@
 - (IBAction)loginBtnAction:(UIButton *)sender {
     NSMutableDictionary *loginInfo = [NSMutableDictionary dictionary];
     [loginInfo setValue:self.mobileTextField.text ? self.mobileTextField.text : @"" forKey:@"mobile"];
+    [loginInfo setValue:self.smsTextField.text ? self.smsTextField.text : @"" forKey:@"smsCode"];
     
     if(self.loginBtnClick)
         self.loginBtnClick([loginInfo copy]);
 }
 
 - (IBAction)smsBtnAction:(UIButton *)sender{
+    if(self.smsBtnClick)
+        self.smsBtnClick(self.mobileTextField.text);
 }
 
 - (IBAction)quiteBtnAction:(UIButton *)sender{

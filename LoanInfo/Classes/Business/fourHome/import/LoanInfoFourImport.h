@@ -22,4 +22,6 @@
 #import "AppRoute+LoanInfoAboutOurRoute.h"
 
 #import "LoanInfoMyHeaderView.h"
+#import "AppDatabase.h"
+
 #endif /* LoanInfoFourImport_h */

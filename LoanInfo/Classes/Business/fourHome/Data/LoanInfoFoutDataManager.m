@@ -7,6 +7,7 @@
 //
 
 #import "LoanInfoFoutDataManager.h"
+#import "LoanInfoTools.h"
 
 @implementation LoanInfoFoutDataManager
 
@@ -44,9 +45,12 @@
 - (void)getFourHeaderDataComplete:(void(^)(NSDictionary *dict))complete{
     NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
     [resultDict setObject:@"loaninfomyicon" forKey:@"iconImage"];
-    [resultDict setObject:@"18711093252" forKey:@"mobileText"];
-    if(complete)
-        complete(resultDict);
+    [AppDatabase getLoginInfo:^(NSDictionary *dict) {
+        [resultDict setObject:[LoanInfoTools changeTelephone:dict[@"mobile"]] forKey:@"mobileText"];
+        if(complete)
+            complete(resultDict);
+    }];
 }
+
 
 @end

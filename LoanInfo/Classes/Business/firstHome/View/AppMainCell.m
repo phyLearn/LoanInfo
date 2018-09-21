@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *maxLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *loansCountLabel;
 
 @end
 @implementation AppMainCell
@@ -33,15 +34,16 @@
 }
 
 - (void)refreshUI:(NSDictionary *)dict{
-    self.titleLabel.text = dict[@"title"];
-    if(dict[@"aDesc"]){
-        self.aDescLabel.text = dict[@"aDesc"];
+    self.titleLabel.text = dict[@"name"];
+    if(dict[@"feat"]){
+        self.aDescLabel.text = dict[@"feat"];
         self.aDescLabel.hidden = NO;
     }else{
         self.aDescLabel.hidden = YES;
     }
-    self.maxLabel.text = dict[@"maxMoney"];
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:dict[@"imageUrl"]]];
+    self.maxLabel.text = [NSString stringWithFormat:@"%@-%@",dict[@"max"],dict[@"min"]];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:dict[@"logo"]]];
+    self.loansCountLabel.text = [NSString stringWithFormat:@"%@已放款",dict[@"loans"]];
 }
 
 @end

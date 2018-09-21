@@ -10,8 +10,9 @@
 
 @implementation AppRoute (LoanInfoProductsRout)
 
-+ (void)routeToProductsVC:(UIViewController *)VC{
++ (void)routeToProductsVC:(UIViewController *)VC paramDict:(NSDictionary *)paramDict{
     LoanInfoProducesViewController *pruductVC =[[LoanInfoProducesViewController alloc] init];
+    pruductVC.paramDict = paramDict;
     [VC.navigationController pushViewController:pruductVC animated:YES];
 }
 @end

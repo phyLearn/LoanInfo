@@ -22,5 +22,8 @@
 #import "SGPagingView.h"
 #import "LoanInfoSecondChildViewController.h"
 #import "LoanInfoSecondFatherView.h"
+#import "MJRefresh.h"
+
+#define CHILDMAINVIEWTAG  10
 
 #endif /* LoanInfoSecondImport_h */

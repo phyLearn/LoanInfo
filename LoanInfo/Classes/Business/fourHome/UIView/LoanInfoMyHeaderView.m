@@ -23,4 +23,8 @@
     self.backMainView.backgroundColor = [LoanInfoMainConfig getYellowColor];
     self.backgroundColor = [LoanInfoMainConfig getBackgroundColor];
 }
+
+- (void)refreshUI:(NSDictionary *)dict{
+    self.mobileLabel.text = dict[@"mobileText"];
+}
 @end

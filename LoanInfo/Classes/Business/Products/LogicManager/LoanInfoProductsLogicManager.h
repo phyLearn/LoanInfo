@@ -14,6 +14,6 @@ typedef enum {
 
 @interface LoanInfoProductsLogicManager : LoanInfoMainLogicManager
 
-- (void)startLogicManagerWithViewController:(UIViewController *)vc complete:(void(^)(completeEnum sonCompleteEnum,NSDictionary *responseDict))complete;
+- (void)startLogicManagerWithViewController:(UIViewController *)vc paramDict:(NSDictionary *)paramDict complete:(void(^)(completeEnum sonCompleteEnum,NSDictionary *responseDict))complete;
 
 @end

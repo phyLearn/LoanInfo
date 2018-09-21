@@ -10,6 +10,10 @@
 #import "AFNetworking.h"
 #import "HYNetworkCache.h"
 
+//请求的HOST
+//#define URLHOST @"http://web.dkzlm.com/"
+#define URLHOST @"http://rap2api.taobao.org/app/mock/84633/"
+
 //判断网络状态
 typedef NS_ENUM(NSUInteger,HYNetworkStatus)
 {

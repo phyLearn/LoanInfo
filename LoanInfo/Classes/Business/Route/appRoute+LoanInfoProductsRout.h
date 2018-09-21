@@ -11,6 +11,6 @@
 
 @interface AppRoute (LoanInfoProductsRout)
 
-+ (void)routeToProductsVC:(UIViewController *)VC;
++ (void)routeToProductsVC:(UIViewController *)VC paramDict:(NSDictionary *)paramDict;
 
 @end

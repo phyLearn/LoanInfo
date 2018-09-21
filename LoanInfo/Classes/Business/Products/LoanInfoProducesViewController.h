@@ -10,4 +10,6 @@
 
 @interface LoanInfoProducesViewController : AppBaseViewController
 
+@property (nonatomic, strong) NSDictionary *paramDict;
+
 @end
