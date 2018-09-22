@@ -41,7 +41,7 @@
     }else{
         self.aDescLabel.hidden = YES;
     }
-    self.maxLabel.text = [NSString stringWithFormat:@"%@-%@",dict[@"max"],dict[@"min"]];
+    self.maxLabel.text = [NSString stringWithFormat:@"%@-%@",dict[@"min"],dict[@"max"]];
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:dict[@"logo"]]];
     self.loansCountLabel.text = [NSString stringWithFormat:@"%@已放款",dict[@"loans"]];
 }

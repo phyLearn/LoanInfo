@@ -73,14 +73,23 @@ static NSString *const mainCell = @"AppMainCell";
 
 //下拉刷新
 - (void)mjheaderRefresh{
-    [self.mainTableView.mj_header endRefreshing];
     [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@%ld",@"headerRefreshObser",self.currentTag] object:nil];
 }
 
 //上拉刷新
 - (void)mjfooterRefresh{
-    [self.mainTableView.mj_footer endRefreshing];
     [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@%ld",@"footerRefreshObser",self.currentTag] object:nil];
+}
+
+- (void)endRefresh{
+    //数据来了，需要停止刷新
+    if(self.mainTableView.mj_header.isRefreshing){
+        [self.mainTableView.mj_header endRefreshing];
+    }
+    
+    if(self.mainTableView.mj_footer.isRefreshing){
+        [self.mainTableView.mj_footer endRefreshing];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -107,6 +116,7 @@ static NSString *const mainCell = @"AppMainCell";
 
 #pragma mark --- 刷新数据 ---
 - (void)refresCellDataWithDict:(NSDictionary *)dict page:(NSString *)inpage{
+    [self endRefresh];
     NSInteger page = [inpage integerValue];
     if(page > 1){//如果不是第一页就要将数据递增
         NSMutableArray *newArr = [NSMutableArray arrayWithArray:self.cellData];

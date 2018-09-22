@@ -42,6 +42,11 @@
     [self performSelectorOnMainThread:selector withObject:nil waitUntilDone:YES];
 }
 
+- (void)loginBtnClick:(NSNotification *)noti{
+    //跳转登录
+    [AppRoute loginComplete:nil];
+}
+
 //跳转意见反馈
 - (void)goToFeedBack{
     NSDictionary *dict = @{@"mainUrl":@"https://www.baidu.com"};

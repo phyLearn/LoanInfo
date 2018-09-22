@@ -55,10 +55,14 @@
     [HYNetworkHelper POST:@"/api/user/login" parameters:parmDict note:YES success:^(id responseObject) {
         [[LoanInfoToast shared] hideHUD];
         HYLog(@"responseObject  %@",responseObject);
-        BOOL isSuccess = [responseObject[@"ret"] integerValue];
+        BOOL isSuccess = ![responseObject[@"ret"] integerValue];
         NSString *message = [NSString string];
         if(!isSuccess){
-            message = @"注册失败";
+            if(responseObject[@"msg"]){
+                message = responseObject[@"msg"];
+            }else{
+                message = @"注册失败";
+            }
         }
         complete(isSuccess,message);
     } failure:^(NSError *error) {

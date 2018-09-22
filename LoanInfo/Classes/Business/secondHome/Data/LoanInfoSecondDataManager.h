@@ -15,4 +15,6 @@
 - (void)getScrollTextsDataComplete:(void(^)(NSDictionary *dict))complete;
 
 - (void)getCellDataWithType:(NSString *)type num:(NSString *)num page:(NSString *)page Complete:(void (^)(NSDictionary *dict,NSString *inpage))complete;
+//请求新口子
+- (void)getCellFirstDataWithTimestamp:(NSString *)timestamp num:(NSString *)num Complete:(void (^)(NSDictionary *dict,NSString *inpage))complete;
 @end

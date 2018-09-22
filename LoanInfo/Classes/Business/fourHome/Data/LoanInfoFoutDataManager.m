@@ -46,7 +46,9 @@
     NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
     [resultDict setObject:@"loaninfomyicon" forKey:@"iconImage"];
     [AppDatabase getLoginInfo:^(NSDictionary *dict) {
-        [resultDict setObject:[LoanInfoTools changeTelephone:dict[@"mobile"]] forKey:@"mobileText"];
+        if(dict.allKeys.count){
+            [resultDict setObject:[LoanInfoTools changeTelephone:dict[@"mobile"]] forKey:@"mobileText"];
+        }
         if(complete)
             complete(resultDict);
     }];

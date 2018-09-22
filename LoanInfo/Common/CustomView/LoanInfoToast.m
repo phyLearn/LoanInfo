@@ -36,8 +36,12 @@
 }
 
 - (void)showHUD{
+    //设置菊花颜色
+    [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor whiteColor];
     self.hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
     self.hud.mode = MBProgressHUDModeIndeterminate;
+    //设置指示框背景颜色
+    self.hud.bezelView.backgroundColor = [UIColor blackColor];
     // 隐藏时候从父控件中移除
     self.hud.removeFromSuperViewOnHide = YES;
 }

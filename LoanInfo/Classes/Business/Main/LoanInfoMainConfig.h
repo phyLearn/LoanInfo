@@ -34,6 +34,9 @@
 //获取浅色字体
 + (UIColor *)getLighGrayColor;
 
+//获取遮罩颜色
++ (UIColor *)getCoverViewColor;
+
 //统一设置app名称
 + (NSString *)getAppName;
 

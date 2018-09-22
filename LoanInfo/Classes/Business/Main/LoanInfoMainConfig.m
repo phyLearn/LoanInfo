@@ -47,6 +47,11 @@
     return yellowColor;
 }
 
++ (UIColor *)getCoverViewColor{
+    UIColor *coverColor = [UIColor colorWithRed:150 / 255 green:150 / 255 blue:150 / 255 alpha:0.8];
+    return coverColor;
+}
+
 + (NSString *)getAppName{
     return @"易贷江湖";
 }

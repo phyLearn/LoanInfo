@@ -40,24 +40,42 @@
 }
 
 - (void)getCellDataWithType:(NSString *)type num:(NSString *)num page:(NSString *)page Complete:(void (^)(NSDictionary *dict,NSString *inpage))complete{
+    //需要加载个指示框
+    [[LoanInfoToast shared] showHUD];
     NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
-//    NSArray *rowArr = @[@{@"headerDesc":@"四分钟放款，贷款不再难",@"bottomDesc":@"简单  快速  借不到"},@{@"title":@"51钱包-秒到账",@"aDesc":@"秒到账",@"bDesc":@"秒下款",@"maxMoney":@"20000",@"minRate":@"0.21%"},
-//                        @{@"title":@"钱花花",@"aDesc":@"额度大",@"bDesc":@"审核快",@"maxMoney":@"20000",@"minRate":@"0.21%",@"imageUrl":@""},
-//                        @{@"title":@"58钱包",@"aDesc":@"额度大",@"bDesc":@"审核快",@"maxMoney":@"30000",@"minRate":@"0.31%",@"imageUrl":@""},
-//                        @{@"title":@"江湖应急",@"aDesc":@"额度大",@"bDesc":@"审核快",@"maxMoney":@"40000",@"minRate":@"0.41%"},@{@"title":@"支付宝",@"aDesc":@"额度大",@"bDesc":@"审核快",@"maxMoney":@"50000",@"minRate":@"0.51%",@"imageUrl":@""},
-//                        @{@"title":@"360融",@"aDesc":@"轻松借",@"bDesc":@"审核快",@"maxMoney":@"60000",@"minRate":@"0.61%",@"imageUrl":@""}];
     NSDictionary *paramDict = @{@"num":num,
                                 @"type":type,
                                 @"page":page,
                                 @"appid":[[LoanInfoDeviceNews shared] getAppId]
                                 };
     [HYNetworkHelper POST:[NSString stringWithFormat:@"%@",@"/api/customer/pager4app2"] parameters:paramDict note:YES success:^(id responseObject){
+        [[LoanInfoToast shared] hideHUD];
         if([[responseObject[@"data"] class] isEqual:[NSNull class]]) return;
         NSArray *rowArr = responseObject[@"data"];
         [resultDict setObject:rowArr forKey:@"rowData"];
         if(complete)
             complete(resultDict,page);
     } failure:^(NSError *error) {
+        [[LoanInfoToast shared] hideHUD];
+    }];
+}
+
+- (void)getCellFirstDataWithTimestamp:(NSString *)timestamp num:(NSString *)num Complete:(void (^)(NSDictionary *dict,NSString *inpage))complete{
+    [[LoanInfoToast shared] showHUD];
+    NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
+    NSDictionary *paramDict = @{@"num":num,
+                                @"timestamp":timestamp,
+                                @"appid":[[LoanInfoDeviceNews shared] getAppId]
+                                };
+    [HYNetworkHelper POST:[NSString stringWithFormat:@"%@",@"/api/customer/pager4app"] parameters:paramDict note:YES success:^(id responseObject){
+        [[LoanInfoToast shared] hideHUD];
+        if([[responseObject[@"data"] class] isEqual:[NSNull class]]) return;
+        NSArray *rowArr = responseObject[@"data"];
+        [resultDict setObject:rowArr forKey:@"rowData"];
+        if(complete)
+            complete(resultDict,@"1");
+    } failure:^(NSError *error) {
+        [[LoanInfoToast shared] hideHUD];
     }];
 }
 

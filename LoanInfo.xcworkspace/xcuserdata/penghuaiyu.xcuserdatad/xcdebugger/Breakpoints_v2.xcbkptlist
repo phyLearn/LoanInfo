@@ -84,7 +84,7 @@
                   moduleName = "LoanInfo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/penghuaiyu/Documents/GitHub/LoanInfo/LoanInfo/loaction/LoanInfoLocation.m"
-                  timestampString = "559226382.876079"
+                  timestampString = "559293399.130958"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "68"
@@ -99,7 +99,7 @@
                   moduleName = "LoanInfo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/penghuaiyu/Documents/GitHub/LoanInfo/LoanInfo/loaction/LoanInfoLocation.m"
-                  timestampString = "559226382.879275"
+                  timestampString = "559293399.135746"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
@@ -116,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoanInfo/Classes/Business/secondHome/secondHomeViewController.m"
-            timestampString = "559226382.681944"
+            timestampString = "559273578.682459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoanInfo/Classes/Business/secondHome/View/LoanInfoSecondMainView.m"
-            timestampString = "559226382.682109"
+            timestampString = "559273578.682595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "-mjheaderRefresh"
             landmarkType = "7">
          </BreakpointContent>
@@ -164,7 +164,7 @@
                   moduleName = "LoanInfo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/penghuaiyu/Documents/GitHub/LoanInfo/LoanInfo/Common/Database/AppFMDB.m"
-                  timestampString = "559226382.899086"
+                  timestampString = "559293399.156028"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "193"
@@ -179,7 +179,7 @@
                   moduleName = "LoanInfo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/penghuaiyu/Documents/GitHub/LoanInfo/LoanInfo/Common/Database/AppFMDB.m"
-                  timestampString = "559226382.902115"
+                  timestampString = "559293399.1595531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "193"
@@ -194,7 +194,7 @@
                   moduleName = "LoanInfo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/penghuaiyu/Documents/GitHub/LoanInfo/LoanInfo/Common/Database/AppFMDB.m"
-                  timestampString = "559226382.9053"
+                  timestampString = "559293399.16256"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "193"
@@ -202,6 +202,54 @@
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanInfo/Classes/Business/secondHome/Data/LoanInfoSecondDataManager.m"
+            timestampString = "559284966.679296"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-getCellFirstDataWithTimestamp:num:Complete:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanInfo/Common/CustomView/GBverifyButton.m"
+            timestampString = "559293398.89535"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-getVerifyClick"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanInfo/Classes/Business/Login/Data/LoanInfoLoginDataManager.m"
+            timestampString = "559293398.895514"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-loginWithPhone:code:complete:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -29,7 +29,6 @@
     
     //点击登录
     loginView.loginBtnClick = ^(NSDictionary *loginInfo){
-        [self loginBtnActionWithInfo:loginInfo];
         [[LoanInfoLoginDataManager shared] loginWithPhone:loginInfo[@"mobile"] code:loginInfo[@"smsCode"] complete:^(BOOL isSuccess, NSString *msg) {
             if(isSuccess){
                 [self loginBtnActionWithInfo:loginInfo];

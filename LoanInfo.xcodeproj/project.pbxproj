@@ -108,6 +108,8 @@
 		3AD7AD3420E5D85F000FDBA5 /* fourHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7AD3220E5D85F000FDBA5 /* fourHomeViewController.m */; };
 		3AD7AD3920E5D870000FDBA5 /* secondHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7AD3720E5D870000FDBA5 /* secondHomeViewController.m */; };
 		3AD7AD4120E5DA5D000FDBA5 /* ChangeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7AD4020E5DA5D000FDBA5 /* ChangeData.json */; };
+		3ADB38102155E6FD0089E107 /* LoanInfoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB380F2155E6FD0089E107 /* LoanInfoUpload.m */; };
+		3ADB38132155FC0B0089E107 /* GBverifyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB38122155FC0B0089E107 /* GBverifyButton.m */; };
 		3AF0D58A2146B40600109961 /* LoanInfoFirstZeroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0D5892146B40600109961 /* LoanInfoFirstZeroView.m */; };
 		3AF0D58C2146B41500109961 /* LoanInfoFirstZeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF0D58B2146B41500109961 /* LoanInfoFirstZeroView.xib */; };
 		6CFBEFE83ADFEC07CE3B53DF /* libPods-LoanInfoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E29F74E499895B5EFFB2D2C8 /* libPods-LoanInfoUITests.a */; };
@@ -332,6 +334,10 @@
 		3AD7AD3620E5D870000FDBA5 /* secondHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = secondHomeViewController.h; sourceTree = "<group>"; };
 		3AD7AD3720E5D870000FDBA5 /* secondHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = secondHomeViewController.m; sourceTree = "<group>"; };
 		3AD7AD4020E5DA5D000FDBA5 /* ChangeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChangeData.json; sourceTree = "<group>"; };
+		3ADB380E2155E6FD0089E107 /* LoanInfoUpload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoanInfoUpload.h; sourceTree = "<group>"; };
+		3ADB380F2155E6FD0089E107 /* LoanInfoUpload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoanInfoUpload.m; sourceTree = "<group>"; };
+		3ADB38112155FC0B0089E107 /* GBverifyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBverifyButton.h; sourceTree = "<group>"; };
+		3ADB38122155FC0B0089E107 /* GBverifyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBverifyButton.m; sourceTree = "<group>"; };
 		3AE50829214BA7C6007580A0 /* LoanInfo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LoanInfo.entitlements; sourceTree = "<group>"; };
 		3AF0D5882146B40600109961 /* LoanInfoFirstZeroView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoanInfoFirstZeroView.h; sourceTree = "<group>"; };
 		3AF0D5892146B40600109961 /* LoanInfoFirstZeroView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoanInfoFirstZeroView.m; sourceTree = "<group>"; };
@@ -773,6 +779,8 @@
 		3ABAB6EB213D505300FC1BDF /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				3ADB38112155FC0B0089E107 /* GBverifyButton.h */,
+				3ADB38122155FC0B0089E107 /* GBverifyButton.m */,
 				3ABAB6EC213D505300FC1BDF /* HYCarouselView.h */,
 				3ABAB6ED213D505300FC1BDF /* HYCarouselView.m */,
 				3ACB406E2143E915004E83AD /* LoanInfoRefreshHeaderView.h */,
@@ -934,6 +942,7 @@
 		3AD7AD0620E5C42A000FDBA5 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				3ADB380D2155E6DE0089E107 /* upload */,
 				3A3896B12142BAB800942E6B /* AboutOur */,
 				3A3896AE2142BAB700942E6B /* Feedback */,
 				3A3896AF2142BAB700942E6B /* HelpCenter */,
@@ -1050,6 +1059,15 @@
 				3AD7AD2D20E5D84C000FDBA5 /* firstHomeViewController.m */,
 			);
 			path = firstHome;
+			sourceTree = "<group>";
+		};
+		3ADB380D2155E6DE0089E107 /* upload */ = {
+			isa = PBXGroup;
+			children = (
+				3ADB380E2155E6FD0089E107 /* LoanInfoUpload.h */,
+				3ADB380F2155E6FD0089E107 /* LoanInfoUpload.m */,
+			);
+			path = upload;
 			sourceTree = "<group>";
 		};
 		9F6A5CD2889EF53DE8F621AC /* Pods */ = {
@@ -1345,6 +1363,7 @@
 				3A54D62B214923260063D2A3 /* LoanInfoTools.m in Sources */,
 				3AA19D4C214AB1EE00D2E5C9 /* LoanInfolittleImageBtn.m in Sources */,
 				3A38963C2142106B00942E6B /* LoanInfoMainTextField.m in Sources */,
+				3ADB38132155FC0B0089E107 /* GBverifyButton.m in Sources */,
 				3A3896732142579E00942E6B /* LoanInfoDataManager.m in Sources */,
 				3A3896C42142BB8C00942E6B /* AppRoute+LoanInfoHelpCenterRoute.m in Sources */,
 				3A3896D02142BBE600942E6B /* AppRoute+LoanInfoSettingRoute.m in Sources */,
@@ -1371,6 +1390,7 @@
 				3A6CB4122152A130009C4350 /* LoanInfoDeviceNews.m in Sources */,
 				3A38967F2142608A00942E6B /* LoanInfoProductsMainView.m in Sources */,
 				3AD7AD1220E5C484000FDBA5 /* MainTabBarViewController.m in Sources */,
+				3ADB38102155E6FD0089E107 /* LoanInfoUpload.m in Sources */,
 				3ACB40762143EAD6004E83AD /* LoanInfoRefreshFooter.m in Sources */,
 				3A3896CD2142BBD900942E6B /* AppRoute+LoanInfoAboutOurRoute.m in Sources */,
 				3A38965E21423B6200942E6B /* LoanInfoFirstLogicManager.m in Sources */,

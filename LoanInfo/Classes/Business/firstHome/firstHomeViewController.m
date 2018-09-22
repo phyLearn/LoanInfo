@@ -25,6 +25,8 @@ static NSString *const mainCell = @"AppMainCell";
     
     //判断登录
     [AppRoute loginComplete:nil];
+    //判断是否更新
+    [LoanInfoUpload showUploadView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

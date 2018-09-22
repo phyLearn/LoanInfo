@@ -45,6 +45,7 @@
 
 + (NSString *)changeTelephone:(NSString *)phone{
     NSString *resultPhone = [NSString string];
+    if([resultPhone isEqualToString:@""]) return resultPhone;
     resultPhone = [phone stringByReplacingOccurrencesOfString:[phone substringWithRange:NSMakeRange(3,4)]withString:@"****"];
     return resultPhone;
 }

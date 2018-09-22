@@ -27,7 +27,7 @@
                                 <constraint firstAttribute="height" constant="50" id="ttY-fw-kUX"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="138****5431" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1br-7j-btR">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1br-7j-btR">
                             <rect key="frame" x="80" y="25" width="140" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="5YG-4V-gb4"/>
@@ -54,10 +54,25 @@
                                 <constraint firstAttribute="width" constant="40" id="sVJ-Ff-bAd"/>
                             </constraints>
                         </imageView>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eld-gQ-Lnm">
+                            <rect key="frame" x="80" y="35" width="133" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="m52-y2-gzf"/>
+                                <constraint firstAttribute="width" constant="133" id="uJ2-VF-TOn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="立即登录">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="loginBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="RRe-P1-H4e"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.78823529410000004" green="0.59607843140000005" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="Odc-oj-hW5" firstAttribute="top" secondItem="1br-7j-btR" secondAttribute="bottom" constant="8" id="1uL-A0-eDW"/>
+                        <constraint firstItem="eld-gQ-Lnm" firstAttribute="leading" secondItem="GfD-vm-YZq" secondAttribute="trailing" constant="10" id="ACg-W6-T5h"/>
                         <constraint firstAttribute="trailing" secondItem="Qi7-5K-fJ5" secondAttribute="trailing" constant="20" id="BWA-vF-Hk1"/>
                         <constraint firstItem="1br-7j-btR" firstAttribute="leading" secondItem="GfD-vm-YZq" secondAttribute="trailing" constant="10" id="IXg-dq-grD"/>
                         <constraint firstItem="1br-7j-btR" firstAttribute="top" secondItem="GfD-vm-YZq" secondAttribute="top" id="Qt4-D6-0Mk"/>
@@ -65,6 +80,7 @@
                         <constraint firstItem="Qi7-5K-fJ5" firstAttribute="centerY" secondItem="MPd-Yt-J8f" secondAttribute="centerY" id="jhW-YG-m25"/>
                         <constraint firstItem="GfD-vm-YZq" firstAttribute="leading" secondItem="MPd-Yt-J8f" secondAttribute="leading" constant="20" id="kUO-LB-BKv"/>
                         <constraint firstItem="GfD-vm-YZq" firstAttribute="centerY" secondItem="MPd-Yt-J8f" secondAttribute="centerY" id="suW-4c-3DZ"/>
+                        <constraint firstItem="eld-gQ-Lnm" firstAttribute="centerY" secondItem="GfD-vm-YZq" secondAttribute="centerY" id="zXc-ny-FFM"/>
                     </constraints>
                 </view>
             </subviews>
@@ -80,6 +96,7 @@
             <connections>
                 <outlet property="backMainView" destination="MPd-Yt-J8f" id="LcZ-pM-DUQ"/>
                 <outlet property="levelLabel" destination="Odc-oj-hW5" id="ejf-m9-Wyq"/>
+                <outlet property="loginBtn" destination="eld-gQ-Lnm" id="GDU-Ph-exH"/>
                 <outlet property="mobileLabel" destination="1br-7j-btR" id="JeW-gE-Dpi"/>
                 <outlet property="newsImageView" destination="Qi7-5K-fJ5" id="Oac-ET-2ha"/>
                 <outlet property="userImageView" destination="GfD-vm-YZq" id="MQq-5n-Cw5"/>

@@ -102,7 +102,7 @@ static NSString *const mainCell = @"AppMainCell";
         UILabel *contentLabel = [[UILabel alloc] init];
         contentLabel.font = [UIFont systemFontOfSize:14];
         contentLabel.tag = 11;
-        
+        contentLabel.textAlignment = NSTextAlignmentCenter;
         [_allLoanView addSubview:contentLabel];
         [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
            make.left.mas_equalTo(iconImageView.mas_right).offset(SPACEHEIGHT);
@@ -217,6 +217,7 @@ static NSString *const mainCell = @"AppMainCell";
 
 - (void)refresCellDataWithDict:(NSDictionary *)dict{
     self.cellData = dict[@"rowData"];
+    [self.zeroView refreshUI:self.cellData[0]];
     [self.mainTableView reloadData];
 }
 

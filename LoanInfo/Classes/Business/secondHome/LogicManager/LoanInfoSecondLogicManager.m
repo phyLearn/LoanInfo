@@ -10,6 +10,8 @@
 
 @interface LoanInfoSecondLogicManager()
 
+@property (nonatomic, copy) NSString *oldTimestamp;//这里需要记录下上次时间戳，用于下次翻页的时候上传
+
 @end
 @implementation LoanInfoSecondLogicManager
 
@@ -38,6 +40,20 @@
 }
 
 - (void)startRequestWithType:(NSString *)type page:(NSString *)page mainView:(LoanInfoSecondMainView *)mainView{
+    NSLog(@" page %@ ",page);
+    if(20 == mainView.currentTag){
+        if([page isEqualToString:@"1"]){
+            self.oldTimestamp = @"0";
+        }
+        [[LoanInfoSecondDataManager shared] getCellFirstDataWithTimestamp:self.oldTimestamp num:@"10" Complete:^(NSDictionary *dict, NSString *inpage) {
+            //这里需要找到最后一个时间戳，用于下次上传
+            NSArray *rowDataArr = dict[@"rowData"];
+            NSDictionary *lastDict = rowDataArr.lastObject;
+            self.oldTimestamp = lastDict[@"ctime"];
+            [mainView refresCellDataWithDict:dict page:page];
+        }];
+        return;
+    }
     [[LoanInfoSecondDataManager shared] getCellDataWithType:type num:@"10" page:page Complete:^(NSDictionary *dict, NSString *inpage) {
         [mainView refresCellDataWithDict:dict page:page];
     }];

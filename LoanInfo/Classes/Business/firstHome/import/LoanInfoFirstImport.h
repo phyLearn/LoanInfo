@@ -26,4 +26,5 @@
 #import "LoanInfoRefreshHeaderView.h"
 #import "LoanInfoRefreshFooter.h"
 
+#import "LoanInfoUpload.h"
 #endif /* LoanInfoFirstImport_h */

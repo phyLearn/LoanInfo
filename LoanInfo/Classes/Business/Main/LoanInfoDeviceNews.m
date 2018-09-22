@@ -32,7 +32,7 @@
 }
 
 - (NSString *)getAppId{
-    return @":id";
+    return @":appid";
 }
 
 //获取app版本号
